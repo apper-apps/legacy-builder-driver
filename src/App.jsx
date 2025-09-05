@@ -12,7 +12,7 @@ import Callback from "@/components/pages/Callback";
 import CheckoutPage from "@/components/pages/CheckoutPage";
 import { clearUser, setUser } from "@/store/userSlice";
 
-const AuthContext = createContext();
+export const AuthContext = createContext();
 
 function App() {
   const navigate = useNavigate();
