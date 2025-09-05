@@ -30,44 +30,45 @@ const HeroSection = () => {
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
 <div className="max-w-6xl mx-auto min-h-screen flex flex-col justify-center">
-          {/* Left Column - Content */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-white space-y-8"
-          >
-            {/* Main Headline */}
-            <div>
-              <motion.h1 
-                className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                Unlock <span className="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">Harmony</span> in Your Family Business—
-                <span className="text-gold-300">Starting Today</span>
-              </motion.h1>
-              
-              <motion.p 
-                className="text-xl md:text-2xl text-navy-100 leading-relaxed mb-8 max-w-2xl"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                Practical steps every family business owner needs to reduce conflict, build alignment, and set the stage for lasting legacy.
-              </motion.p>
-            </div>
+          {/* 2-Column Grid Layout */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             
-            {/* Key Benefits */}
-{/* Key Benefits with Book Mockup */}
+            {/* Left Column - Content */}
             <motion.div 
-              className="flex flex-col lg:flex-row gap-12 items-start"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
+              initial={{ opacity: 0, x: -50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              className="text-white space-y-8"
             >
-              <div className="space-y-4 flex-1">
+              {/* Main Headline */}
+              <div>
+                <motion.h1 
+                  className="text-4xl md:text-5xl lg:text-6xl font-display font-bold leading-tight mb-6"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                  Unlock <span className="bg-gradient-to-r from-gold-300 to-gold-500 bg-clip-text text-transparent">Harmony</span> in Your Family Business—
+                  <span className="text-gold-300">Starting Today</span>
+                </motion.h1>
+                
+                <motion.p 
+                  className="text-xl md:text-2xl text-navy-100 leading-relaxed mb-8"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                >
+                  Practical steps every family business owner needs to reduce conflict, build alignment, and set the stage for lasting legacy.
+                </motion.p>
+              </div>
+              
+              {/* Key Benefits */}
+              <motion.div 
+                className="space-y-4"
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+              >
                 {[
                   "End family conflicts that hurt your business",
                   "Create clear roles and expectations",
@@ -87,62 +88,62 @@ const HeroSection = () => {
                     <span className="text-lg text-navy-100">{benefit}</span>
                   </motion.div>
                 ))}
-              </div>
+              </motion.div>
               
-              {/* Book Mockup integrated next to practical steps */}
-              <motion.div 
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex justify-center lg:justify-end flex-shrink-0"
+              {/* CTA Button */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 1.0 }}
               >
-                <BookMockup />
+                <Button
+                  size="xl"
+                  onClick={handleCTA}
+                  className="text-xl font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
+                >
+                  <ApperIcon name="Download" className="w-6 h-6 mr-3" />
+                  Get Instant Access for Just $9.97
+                </Button>
+                
+                <p className="text-navy-200 text-sm mt-4 flex items-center justify-start">
+                  <ApperIcon name="Shield" className="w-4 h-4 mr-2" />
+                  7-Day Money Back Guarantee • Instant Digital Delivery
+                </p>
+              </motion.div>
+              
+              {/* Trust Indicator */}
+              <motion.div 
+                className="flex items-center space-x-8 pt-8 border-t border-white/20"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, delay: 1.2 }}
+              >
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-gold-300">20+</div>
+                  <div className="text-sm text-navy-200">Years Experience</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-gold-300">100+</div>
+                  <div className="text-sm text-navy-200">Family Businesses</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-gold-300">5★</div>
+                  <div className="text-sm text-navy-200">Client Rating</div>
+                </div>
               </motion.div>
             </motion.div>
             
-            {/* CTA Button */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 1.0 }}
+            {/* Right Column - Ebook Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="flex justify-center lg:justify-end"
             >
-              <Button
-                size="xl"
-                onClick={handleCTA}
-                className="text-xl font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300"
-              >
-                <ApperIcon name="Download" className="w-6 h-6 mr-3" />
-                Get Instant Access for Just $9.97
-              </Button>
-              
-              <p className="text-navy-200 text-sm mt-4 flex items-center justify-start">
-                <ApperIcon name="Shield" className="w-4 h-4 mr-2" />
-                7-Day Money Back Guarantee • Instant Digital Delivery
-              </p>
+              <BookMockup />
             </motion.div>
             
-            {/* Trust Indicator */}
-            <motion.div 
-              className="flex items-center space-x-8 pt-8 border-t border-white/20"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, delay: 1.2 }}
-            >
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gold-300">20+</div>
-                <div className="text-sm text-navy-200">Years Experience</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gold-300">100+</div>
-                <div className="text-sm text-navy-200">Family Businesses</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gold-300">5★</div>
-                <div className="text-sm text-navy-200">Client Rating</div>
-              </div>
-            </motion.div>
-          </motion.div>
-          
+          </div>
         </div>
         
         {/* Scroll Indicator */}
