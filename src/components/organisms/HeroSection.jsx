@@ -29,7 +29,7 @@ const HeroSection = () => {
       </div>
       
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen">
+<div className="max-w-6xl mx-auto min-h-screen flex flex-col justify-center">
           {/* Left Column - Content */}
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -60,31 +60,44 @@ const HeroSection = () => {
             </div>
             
             {/* Key Benefits */}
+{/* Key Benefits with Book Mockup */}
             <motion.div 
-              className="space-y-4"
+              className="flex flex-col lg:flex-row gap-12 items-start"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
             >
-              {[
-                "End family conflicts that hurt your business",
-                "Create clear roles and expectations",
-                "Build a succession plan that works",
-                "Protect your family's legacy"
-              ].map((benefit, index) => (
-                <motion.div 
-                  key={index}
-                  className="flex items-center space-x-3"
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: 0.8 + (index * 0.1) }}
-                >
-                  <div className="w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0">
-                    <ApperIcon name="Check" className="w-4 h-4 text-navy-900" />
-                  </div>
-                  <span className="text-lg text-navy-100">{benefit}</span>
-                </motion.div>
-              ))}
+              <div className="space-y-4 flex-1">
+                {[
+                  "End family conflicts that hurt your business",
+                  "Create clear roles and expectations",
+                  "Build a succession plan that works",
+                  "Protect your family's legacy"
+                ].map((benefit, index) => (
+                  <motion.div 
+                    key={index}
+                    className="flex items-center space-x-3"
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.5, delay: 0.8 + (index * 0.1) }}
+                  >
+                    <div className="w-6 h-6 bg-gold-500 rounded-full flex items-center justify-center flex-shrink-0">
+                      <ApperIcon name="Check" className="w-4 h-4 text-navy-900" />
+                    </div>
+                    <span className="text-lg text-navy-100">{benefit}</span>
+                  </motion.div>
+                ))}
+              </div>
+              
+              {/* Book Mockup integrated next to practical steps */}
+              <motion.div 
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
+                className="flex justify-center lg:justify-end flex-shrink-0"
+              >
+                <BookMockup />
+              </motion.div>
             </motion.div>
             
             {/* CTA Button */}
@@ -130,15 +143,6 @@ const HeroSection = () => {
             </motion.div>
           </motion.div>
           
-          {/* Right Column - Book Mockup */}
-          <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex justify-center lg:justify-end"
-          >
-            <BookMockup />
-          </motion.div>
         </div>
         
         {/* Scroll Indicator */}
