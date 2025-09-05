@@ -3,8 +3,7 @@ import ApperIcon from "@/components/ApperIcon";
 import Card from "@/components/atoms/Card";
 
 const TestimonialCard = ({ testimonial }) => {
-  const { quote, author, business, rating } = testimonial;
-  
+const { quote_c, author_c, business_c, rating_c } = testimonial;
   return (
     <Card variant="elevated" className="relative overflow-hidden">
       {/* Decorative quote mark */}
@@ -15,7 +14,7 @@ const TestimonialCard = ({ testimonial }) => {
       <div className="relative">
         {/* Star Rating */}
         <div className="flex items-center space-x-1 mb-4">
-          {[...Array(rating)].map((_, i) => (
+{[...Array(rating_c)].map((_, i) => (
             <ApperIcon 
               key={i} 
               name="Star" 
@@ -25,17 +24,17 @@ const TestimonialCard = ({ testimonial }) => {
         </div>
         
         {/* Quote */}
-        <blockquote className="text-gray-700 leading-relaxed mb-6 italic">
-          "{quote}"
+<blockquote className="text-gray-700 leading-relaxed mb-6 italic">
+          "{quote_c}"
         </blockquote>
         
         {/* Author */}
         <div className="border-t border-gray-100 pt-4">
           <div className="font-semibold text-gray-900 mb-1">
-            {author}
+{author_c}
           </div>
           <div className="text-sm text-gold-600 font-medium">
-            {business}
+{business_c}
           </div>
         </div>
       </div>

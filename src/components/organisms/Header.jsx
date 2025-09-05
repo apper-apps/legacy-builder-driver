@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { motion } from "framer-motion";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
 import ProgressIndicator from "@/components/molecules/ProgressIndicator";
 import { toast } from "react-toastify";
-
+import { AuthContext } from "../App";
+import { useSelector } from 'react-redux';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   
@@ -100,8 +101,7 @@ const Header = () => {
                 </button>
               ))}
             </nav>
-            
-            {/* CTA Button */}
+{/* CTA Button and User Menu */}
             <div className="flex items-center space-x-4">
               <Button
                 size="md"
@@ -116,11 +116,65 @@ const Header = () => {
                 <span className="hidden sm:inline">Get Guide</span>
                 <span className="sm:hidden">$9.97</span>
               </Button>
+              <UserMenu isScrolled={isScrolled} />
             </div>
           </div>
         </div>
       </motion.header>
-    </>
+</>
+  );
+};
+
+const UserMenu = ({ isScrolled }) => {
+  const { logout } = useContext(AuthContext);
+  const { user, isAuthenticated } = useSelector((state) => state.user);
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  if (!isAuthenticated) {
+    return null;
+  }
+
+  const handleLogout = async () => {
+    try {
+      await logout();
+      toast.success("Logged out successfully");
+    } catch (error) {
+      toast.error("Logout failed");
+    }
+    setShowDropdown(false);
+  };
+
+  return (
+    <div className="relative">
+      <button
+        onClick={() => setShowDropdown(!showDropdown)}
+        className={`w-8 h-8 rounded-full flex items-center justify-center ${
+          isScrolled 
+            ? "bg-gray-200 text-gray-700 hover:bg-gray-300" 
+            : "bg-white/20 text-white hover:bg-white/30"
+        }`}
+      >
+        <ApperIcon name="User" className="w-4 h-4" />
+      </button>
+      
+      {showDropdown && (
+        <div className="absolute right-0 top-10 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-50">
+          <div className="px-4 py-2 border-b border-gray-200">
+            <p className="text-sm font-medium text-gray-900">
+              {user?.firstName} {user?.lastName}
+            </p>
+            <p className="text-xs text-gray-500">{user?.emailAddress}</p>
+          </div>
+          <button
+            onClick={handleLogout}
+            className="w-full text-left px-4 py-2 text-sm text-red-600 hover:bg-red-50 flex items-center"
+          >
+            <ApperIcon name="LogOut" className="w-4 h-4 mr-2" />
+            Logout
+          </button>
+        </div>
+      )}
+    </div>
   );
 };
 
