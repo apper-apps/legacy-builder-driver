@@ -20,7 +20,7 @@ const BookMockup = ({ className = "" }) => {
           
           {/* Book Cover Image */}
           <img 
-            src="/ebook-cover.jpg" 
+src="https://ln5.sync.com/dl/d837e4cc0/d6ihnb83-7xrdi7ja-v49tbb6j-ffevj3p7" 
             alt="Family Business Harmony Quick-Start Guide" 
             className="w-full h-full object-cover"
             onError={(e) => {
