@@ -1,20 +1,22 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
 import Card from "@/components/atoms/Card";
 import { toast } from "react-toastify";
 
 const PricingBox = ({ className = "" }) => {
+  const navigate = useNavigate();
   const handlePurchase = () => {
-    toast.success("Redirecting to secure checkout...", {
+toast.success("Redirecting to secure checkout...", {
       position: "top-right",
       autoClose: 2000,
     });
     
-    // In a real app, this would redirect to payment processor
+    // Navigate to checkout page
     setTimeout(() => {
-      window.open("https://checkout.stripe.com", "_blank");
+      navigate("/checkout");
     }, 1000);
   };
   
