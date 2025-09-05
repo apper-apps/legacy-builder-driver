@@ -129,4 +129,3 @@ class TestimonialService {
 }
 
 export default new TestimonialService();
-export default new TestimonialService();
