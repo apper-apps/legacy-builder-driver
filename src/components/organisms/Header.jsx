@@ -4,7 +4,7 @@ import ApperIcon from "@/components/ApperIcon";
 import Button from "@/components/atoms/Button";
 import ProgressIndicator from "@/components/molecules/ProgressIndicator";
 import { toast } from "react-toastify";
-import { AuthContext } from "../App";
+import { AuthContext } from "../../App";
 import { useSelector } from 'react-redux';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
